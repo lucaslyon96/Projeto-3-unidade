@@ -65,11 +65,15 @@ private:
     /**
      * @brief time um ponteiro time para armazenar o tempo
      */
-   // QTimer *time;
+    QTimer *time;
     /**
      * @brief id uma variavel double para guardar o indice da funcao startTimer()
      */
     double id;
+    /**
+     * @brief flag_click variavel para dizer se o botao start ja foi usado ou nao
+     */
+    int flag_click = 0;
 };
 
 #endif // MAINWINDOW_H

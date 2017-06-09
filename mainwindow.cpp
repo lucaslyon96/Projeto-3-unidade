@@ -61,7 +61,7 @@ void MainWindow::putData()
         str = "set "+
                 datetime.toString(Qt::ISODate)+
                 " "+
-                QString::number(min+qrand()%(max-min))+"/r/n";
+                QString::number(min+qrand()%(max-min))+"/r /n";
 
         ui->textout->append(str);
         qDebug() << socket->write(str.toStdString().c_str()) << " bytes written";
@@ -95,12 +95,16 @@ void MainWindow::tcpDisconnect()
     //time->stop();
     socket->disconnectFromHost();
     qDebug()<<"Disconnected";
+    ui->textout->append("Disconnected\n");
 }
 
 void MainWindow::on_start_clicked()
 {
+    if(flag_click==0){
     id=startTimer(ui->horizontalSliderTIME->value()*1000);
     //time->start(ui->horizontalSliderTIME->value()*1000);
+    flag_click = 1;
+    }
 }
 
 void MainWindow::on_stop_clicked()
